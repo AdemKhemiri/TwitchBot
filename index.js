@@ -50,6 +50,7 @@ client.on('message', (channel, user, message, self) => {
     if(message.toLowerCase().includes("sus")) {
         client.say(channel, `ඞ`)
     }
+    
 
     if(message.toLowerCase().includes("adopted")) {
         client.say(channel, `Mommy Ady will adopt me!! BibleThump`)
