@@ -1,6 +1,6 @@
 const tmi = require('tmi.js'),
     { channel, username, password } = require('./settings.json');
-
+require('dotenv').config();
 const Carissa = require('./src/streamers/carissaquack')
 const Cass = require('./src/streamers/spookycass')
 const Adam = require('./src/streamers/adam79_kh')
@@ -17,19 +17,20 @@ const options = {
         secure: true
     },
     identity: {
-        username,
-        password
+        username: process.env.BOT_USERNAME,
+        password: process.env.OATH_PASSWORD
     },
-    channels: [
-        channel, 
-        // "cassandramarie1"
-        // "spookycass",
-        // "carissaquack",
-        // "lilbusterx",
-        // "meeya_8",
-        // "adriannaxoo",
-        // "TyrellTheCreator_06",
-    ]
+    // channels: [
+    //     channel, 
+    //     // "cassandramarie1"
+    //     // "spookycass",
+    //     // "carissaquack",
+    //     // "lilbusterx",
+    //     // "meeya_8",
+    //     // "adriannaxoo",
+    //     // "TyrellTheCreator_06",
+    // ]
+    channels: process.env.CHANNEL_NAMES.split(",")
 };
 
 const client = new tmi.Client(options)
