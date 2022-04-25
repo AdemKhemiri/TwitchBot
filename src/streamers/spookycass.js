@@ -1,5 +1,4 @@
 
-
 module.exports = {
     CassCommands: function(client, channel, user, message) {
         const arr = message.split(" ")
@@ -30,5 +29,25 @@ module.exports = {
         if(message.toLowerCase().includes("veng")) {
             client.say(channel, `GO vengeance GO ResidentSleeper`);
         }
+        if(command.toLowerCase() === "!pp") {
+            if(_1===undefined) {
+                _1=user.username
+            }
+            let size = ""
+            for (let index = 0; index < Math.floor(Math.random()*9); index++) {
+                size += "=";
+            }
+            // if(_1.toLowerCase().includes("adam")) {
+            //     size = "======"
+            // }
+            // if(_1.toLowerCase().includes("bobber")) {
+            //     size = ""
+            // }
+            client.say(channel, `peepee size machine: ${_1}'s penis 8${size}D`);
+        }
+        if(message.toLowerCase().includes("points in roulette and now has")||message.toLowerCase().includes("went all in and lost every single one of their")) {
+            client.say(channel, `${user.username}, sucks to be you, BIG LAME!! LUL`);
+        }
+        
     }
 }
