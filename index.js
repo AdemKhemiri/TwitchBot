@@ -25,17 +25,19 @@ const options = {
         channel,
         // "cassandramarie1"
         "spookycass",
-        // "carissaquack",
+        "carissaquack",
         // "lilbusterx",
         // "meeya_8",
         // "adriannaxoo",
         // "TyrellTheCreator_06",
         // "chipmunkkiesses",
         // "Archangeltricks",
-        // "kindaalmostalice"
+        // "kindaalmostalice",
+        // "Lobojoe125"
     ]
     // channels: process.env.CHANNEL_NAMES.split(",")
 };
+let deathcount = 54
 
 const client = new tmi.Client(options)
 client.connect().catch(console.error);
@@ -62,9 +64,11 @@ client.on('message', (channel, user, message, self) => {
     //         console.log(err);
     //     })
     // }
-    if(command.toLowerCase()==="!addtoadam") {
-        client.say(channel, `Welcome in @${user.username}!!`)
-
+    if(message.toLowerCase().includes("be a bad boi")) {
+        client.say(channel, `Buy followers, primes and viewers on by watching this lovely streamer (remove the space)`)
+        setTimeout(()=>{
+            client.say(channel, `Are you proud of me??`)
+        }, 5000);
     }
     if(user['first-msg']) {
         client.say(channel, `Welcome in @${user.username}!!`)
@@ -99,6 +103,10 @@ client.on('message', (channel, user, message, self) => {
         }
         client.say(channel, RiotText);
     }
+    if(message.toLowerCase() === "!riots") {
+
+        client.say(channel, "୧༼ಠ益ಠ༽୨ RIOT ୧༼ಠ益ಠ༽୨");
+    }
 
 
     if(message.includes("ditching")) {
@@ -129,7 +137,6 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `there is a ${loveValue}% chance of love between ${user.username} and ${_1}`)
     }
 
-
     if(command === "!roasts") {
         if(_1 === undefined) {
             client.say(channel, `Please specify a username.`)
@@ -149,6 +156,12 @@ client.on('message', (channel, user, message, self) => {
     if(message.toLowerCase() === "!dadjokes") {
         client.say(channel, DadJokes.getJoke());
     }
+
+    if(command.toLowerCase()==='!deaths'){
+      deathcount = deathcount+1
+      client.say(channel, `Archiee died ${deathcount} times`)
+
+    }
     // CARISSA CHANNEL
     if(channel === "#carissaquack") {
         Carissa.CarissaCommands(client, channel, user, message)
@@ -158,7 +171,7 @@ client.on('message', (channel, user, message, self) => {
         Cass.CassCommands(client, channel, user, message)
     }
     // ADRIANNAXOO CHANNEL
-    if(channel === "#adriannaxoo") {
+    if(channel === "#adriannaxoo"||channel==="archangeltricks") {
         Adrianna.AdriannaCommands(client, channel, user, message)
     }
     if(channel === "#kindaalmostalice") {

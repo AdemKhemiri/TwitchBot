@@ -26,9 +26,9 @@ module.exports = {
                 client.say(channel, `Are you proud of me dad??`)
             }, 5000);
         }
-        if(message.toLowerCase().includes("veng")) {
+        /*if(message.toLowerCase().includes("veng")) {
             client.say(channel, `GO vengeance GO ResidentSleeper`);
-        }
+        }*/
         if(command.toLowerCase() === "!pp") {
             if(_1===undefined) {
                 _1=user.username
@@ -48,6 +48,6 @@ module.exports = {
         if(message.toLowerCase().includes("points in roulette and now has")||message.toLowerCase().includes("went all in and lost every single one of their")) {
             client.say(channel, `${user.username}, sucks to be you, BIG LAME!! LUL`);
         }
-        
+
     }
 }
