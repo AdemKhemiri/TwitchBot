@@ -5,7 +5,6 @@ require('dotenv').config();
 const Carissa = require('./src/streamers/carissaquack')
 const Cass = require('./src/streamers/spookycass')
 const Adam = require('./src/streamers/adam79_kh')
-const Adrianna = require('./src/streamers/adriannaxoo')
 const Roasts = require('./src/data/Roasts');
 const DadJokes = require('./src/data/DadJokes')
 

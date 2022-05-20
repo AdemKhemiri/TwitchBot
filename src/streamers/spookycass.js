@@ -1,3 +1,4 @@
+const Compliments = require('../data/compliments')
 
 module.exports = {
     CassCommands: function(client, channel, user, message) {
@@ -6,10 +7,10 @@ module.exports = {
         let _1 = arr[1]
         let _2 = arr[2]
 
-        if(command.toLowerCase() === "dee") {
-            client.say(channel, "Just dee honestly")
+        if(command.toLowerCase() === "!compliment"||command.toLowerCase() === "!compliments") {
+            client.say(channel, `${_1}, ${Compliments.getCompliments()}`)
         }
-
+        
         if(command === "!simp") {
             if(user.username.toLowerCase().includes("adam") && channel.toLowerCase()==="#spookycass" && _1.toLowerCase().includes("cass"))
                 client.say(channel, `Is that even a question?? Adam is no simp, He's Cassandra's soulmate`)
@@ -46,7 +47,7 @@ module.exports = {
             client.say(channel, `peepee size machine: ${_1}'s penis 8${size}D`);
         }
         if(message.toLowerCase().includes("points in roulette and now has")||message.toLowerCase().includes("went all in and lost every single one of their")) {
-            client.say(channel, `${user.username}, sucks to be you, BIG LAME!! LUL`);
+            client.say(channel, `${command}, sucks to be you, BIG LAME!! LUL`);
         }
 
     }

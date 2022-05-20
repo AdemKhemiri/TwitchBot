@@ -12,10 +12,11 @@ module.exports = {
         "Sorry, sarcasm falls out of my mouth like bullshit falls out of yours.",
         "I’d smack you, but that would be animal abuse.",
         "my mum told me to take out the trash but i couldn’t find you LUL",
-        "If I wanted to kill myself i would just climb up your ego and jump down to your IQ.",
         "i would roast you but your mirror does every time you look into it.",
         "your hairline goes back to when Adam and Eve were born.",
-        "Were you born on a highway because most accidents happen on the highway."
+        "Were you born on a highway because most accidents happen on the highway.",
+        "You have the right to remain silent because whatever you say will probably be stupid anyway.",
+        "Roasting you is a waste of my time.",
 
 
     ],
