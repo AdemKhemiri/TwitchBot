@@ -7,6 +7,7 @@ const Cass = require('./src/streamers/spookycass')
 const Adam = require('./src/streamers/adam79_kh')
 const Roasts = require('./src/data/Roasts');
 const DadJokes = require('./src/data/DadJokes')
+const Compliments = require('./src/data/compliments')
 
 const { default: axios } = require('axios');
 
@@ -27,12 +28,13 @@ const options = {
         "carissaquack",
         // "lilbusterx",
         // "meeya_8",
-        // "adriannaxoo",
+         "adriannaxoo",
         // "TyrellTheCreator_06",
         // "chipmunkkiesses",
         // "Archangeltricks",
         // "kindaalmostalice",
-        // "Lobojoe125"
+        // "Lobojoe125",
+        // "apricotsnaps",
     ]
     // channels: process.env.CHANNEL_NAMES.split(",")
 };
@@ -69,7 +71,7 @@ client.on('message', (channel, user, message, self) => {
             client.say(channel, `Are you proud of me??`)
         }, 5000);
     }
-    if(user['first-msg']) {
+    if(user['first-msg']&&channel !== "#spookycass") {
         client.say(channel, `Welcome in @${user.username}!!`)
 
     }
@@ -112,9 +114,6 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `if you ditch me @${user.username}, i'll come for you`);
     }
 
-    if(command.toLowerCase() === "!love" && _1.toLowerCase().includes("abby")) {
-        client.say(channel, `100% for sure`)
-    }
 
     // LOVE COMMAND
     if(command.toLowerCase() === "!love") {
@@ -122,7 +121,11 @@ client.on('message', (channel, user, message, self) => {
             client.say(channel, `Please specify a username.`)
             return
         }
-        let loveValue = Math.floor(Math.random()*101);
+        let loveValue = 0
+        if(user.username.toLowerCase().includes('ninja')) {
+          loveValue = Math.floor(Math.random()*16)
+        }
+         loveValue = Math.floor(Math.random()*101);
         if(
             (
                 _1.toLowerCase().includes('rissa')||
@@ -156,11 +159,33 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, DadJokes.getJoke());
     }
 
-    if(command.toLowerCase()==='!deaths'){
-      deathcount = deathcount+1
-      client.say(channel, `Archiee died ${deathcount} times`)
+    if(command.toLowerCase()==='!howlong'){
+        if(_1 === undefined) _1 = user.username
+        axios.get(`https://2g.be/twitch/following.php?user=${_1}&channel=${channel.substring(1)}&format=mwdhms`).then((res)=>{
+            client.say(channel, `${res.data}`);
+
+        }).catch((err)=>{
+            console.log(err);
+        })
 
     }
+
+    if(command.toLowerCase() === "!compliment"||command.toLowerCase() === "!compliments") {
+        client.say(channel, `${_1}, ${Compliments.getCompliments()}`)
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     // CARISSA CHANNEL
     if(channel === "#carissaquack") {
         Carissa.CarissaCommands(client, channel, user, message)
@@ -171,7 +196,10 @@ client.on('message', (channel, user, message, self) => {
     }
     // ADRIANNAXOO CHANNEL
     if(channel === "#adriannaxoo"||channel==="archangeltricks") {
-        Adrianna.AdriannaCommands(client, channel, user, message)
+        //Adrianna.AdriannaCommands(client, channel, user, message)
+        if(command.toLowerCase() === "!kiss") {
+            client.say(channel, `<3 @${user.username} has kissed ${_1} 💋 <3`)
+        }
     }
     if(channel === "#kindaalmostalice") {
         if(command.toLowerCase() === "!love") {

@@ -1,5 +1,4 @@
-const Compliments = require('../data/compliments')
-
+const axios = require('axios')
 module.exports = {
     CassCommands: function(client, channel, user, message) {
         const arr = message.split(" ")
@@ -7,10 +6,16 @@ module.exports = {
         let _1 = arr[1]
         let _2 = arr[2]
 
-        if(command.toLowerCase() === "!compliment"||command.toLowerCase() === "!compliments") {
-            client.say(channel, `${_1}, ${Compliments.getCompliments()}`)
+
+        if(user['first-msg']) {
+            client.say(channel, `Welcome in @${user.username}!!`)
+
         }
-        
+
+        if(command.toLowerCase() === "!kiss") {
+            client.say(channel, `<3 @${user.username} has kissed ${_1} 💋 <3`)
+        }
+
         if(command === "!simp") {
             if(user.username.toLowerCase().includes("adam") && channel.toLowerCase()==="#spookycass" && _1.toLowerCase().includes("cass"))
                 client.say(channel, `Is that even a question?? Adam is no simp, He's Cassandra's soulmate`)
@@ -38,13 +43,23 @@ module.exports = {
             for (let index = 0; index < Math.floor(Math.random()*9); index++) {
                 size += "=";
             }
-            // if(_1.toLowerCase().includes("adam")) {
-            //     size = "======"
-            // }
+             if(_1.toLowerCase().includes("parsons")) {
+                 size = "========="
+             }
+             if(_1.toLowerCase().includes("adam")) {
+                 size = "======="
+             }
+             if(_1.toLowerCase().includes("ooga")) {
+                 size = "========"
+             }
+             if(_1.toLowerCase().includes("ninja")) {
+                 size = "=="
+             }
             // if(_1.toLowerCase().includes("bobber")) {
             //     size = ""
             // }
             client.say(channel, `peepee size machine: ${_1}'s penis 8${size}D`);
+
         }
         if(message.toLowerCase().includes("points in roulette and now has")||message.toLowerCase().includes("went all in and lost every single one of their")) {
             client.say(channel, `${command}, sucks to be you, BIG LAME!! LUL`);
