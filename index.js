@@ -23,7 +23,7 @@ const options = {
     channels: [
         'adam79_kh',
         // "cassandramarie1"
-        "spookycass",
+        'spookycass',
         // "carissaquack",
         // "lilbusterx",
         // "meeya_8",
@@ -34,7 +34,7 @@ const options = {
         // "kindaalmostalice",
         // "Lobojoe125",
         // "apricotsnaps",
-        "RottenRunt"
+        'rottenrunt'
     ]
     // channels: process.env.CHANNEL_NAMES.split(",")
 };
