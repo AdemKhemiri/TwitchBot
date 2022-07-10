@@ -8,7 +8,7 @@ const Adam = require('./src/streamers/adam79_kh')
 const Roasts = require('./src/data/Roasts');
 const DadJokes = require('./src/data/DadJokes')
 const Compliments = require('./src/data/compliments')
-
+const PickupLines = require('./src/data/PickupLines')
 const { default: axios } = require('axios');
 
 const options = {
@@ -25,16 +25,17 @@ const options = {
         channel,
         // "cassandramarie1"
         "spookycass",
-        "carissaquack",
+        // "carissaquack",
         // "lilbusterx",
         // "meeya_8",
-         "adriannaxoo",
+        //  "adriannaxoo",
         // "TyrellTheCreator_06",
         // "chipmunkkiesses",
         // "Archangeltricks",
         // "kindaalmostalice",
         // "Lobojoe125",
         // "apricotsnaps",
+        "RottenRunt"
     ]
     // channels: process.env.CHANNEL_NAMES.split(",")
 };
@@ -114,6 +115,12 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `if you ditch me @${user.username}, i'll come for you`);
     }
 
+    if(command.toLowerCase() === "!grounded") {
+        if(_1===undefined) {
+            _1=user.username
+        }
+        client.say(channel, `${_1}, it's over you're grounded, to your room now cmonBruh`)
+    }
 
     // LOVE COMMAND
     if(command.toLowerCase() === "!love") {
@@ -169,14 +176,42 @@ client.on('message', (channel, user, message, self) => {
         })
 
     }
+    if(command.toLowerCase() === "!pp") {
+        if(_1===undefined) {
+            _1=user.username
+        }
+        let size = ""
+        for (let index = 0; index < Math.floor(Math.random()*9); index++) {
+            size += "=";
+        }
+         
+         if(_1.toLowerCase().includes("adam")) {
+             size = "======="
+         }
+         
+         if(_1.toLowerCase().includes("ninja")) {
+             size = "=="
+         }
+        
+        // if(_1.toLowerCase().includes("bobber")) {
+        //     size = ""
+        // }
+        client.say(channel, `peepee size machine: ${_1}'s penis 8${size}D`);
 
+    }
     if(command.toLowerCase() === "!compliment"||command.toLowerCase() === "!compliments") {
         client.say(channel, `${_1}, ${Compliments.getCompliments()}`)
 
     }
 
 
+    if(command.toLowerCase().includes('!pickupline') || command.toLowerCase() === '!flirt') {
+        if(_1===undefined) {
+            _1=channel
+        }
+        client.say(channel, `${_1}, ${PickupLines.getPickupLines()}`)
 
+    }
 
 
 
