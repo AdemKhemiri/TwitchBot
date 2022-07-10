@@ -1,5 +1,4 @@
-const tmi = require('tmi.js'),
-    { channel, username, password } = require('./settings.json');
+const tmi = require('tmi.js')
 const db = require('./database')
 require('dotenv').config();
 const Carissa = require('./src/streamers/carissaquack')
@@ -22,7 +21,7 @@ const options = {
         password: process.env.OATH_PASSWORD
     },
     channels: [
-        channel,
+        'adam79_kh',
         // "cassandramarie1"
         "spookycass",
         // "carissaquack",
