@@ -206,7 +206,7 @@ client.on('message', (channel, user, message, self) => {
 
     if(command.toLowerCase().includes('!pickupline') || command.toLowerCase() === '!flirt') {
         if(_1===undefined) {
-            _1=channel
+            _1=channel.substring(1)
         }
         client.say(channel, `${_1}, ${PickupLines.getPickupLines()}`)
 
