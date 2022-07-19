@@ -23,7 +23,7 @@ const options = {
     channels: [
         'adam79_kh',
         // "cassandramarie1"
-        'spookycass',
+        //'spookycass',
         // "carissaquack",
         // "lilbusterx",
         // "meeya_8",
