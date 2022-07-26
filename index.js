@@ -22,8 +22,16 @@ const options = {
         password: process.env.OATH_PASSWORD
     },
     channels: [
+<<<<<<< HEAD
+        'adam79_kh',
+        // "cassandramarie1"
+        //'spookycass',
+        // "carissaquack",
+        // "lilbusterx",
+=======
         channel,
         "lilbusterx",
+>>>>>>> cd9dfba548ff87906cfad4ffc4a2b1036a12ad96
         // "meeya_8",
         "adriannaxoo",
         
@@ -200,7 +208,7 @@ client.on('message', (channel, user, message, self) => {
 
     if(command.toLowerCase().includes('!pickupline') || command.toLowerCase() === '!flirt') {
         if(_1===undefined) {
-            _1=channel
+            _1=channel.substring(1)
         }
         client.say(channel, `${_1}, ${PickupLines.getPickupLines()}`)
 
