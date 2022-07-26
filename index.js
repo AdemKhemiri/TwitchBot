@@ -1,9 +1,6 @@
-const tmi = require('tmi.js'),
-    { channel, username, password } = require('./settings.json');
+const tmi = require('tmi.js')
 const db = require('./database')
 require('dotenv').config();
-const Carissa = require('./src/streamers/carissaquack')
-const Cass = require('./src/streamers/spookycass')
 const Adam = require('./src/streamers/adam79_kh')
 const Roasts = require('./src/data/Roasts');
 const DadJokes = require('./src/data/DadJokes')
@@ -48,13 +45,7 @@ client.on('message', (channel, user, message, self) => {
     if(message.toLowerCase().includes("sus")) {
         client.say(channel, `ඞ`)
     }
-    // if(message.toLowerCase().includes("!host")) {
-    //     client.host("adam79_bot", "spookycass").then((data)=>{
-    //         console.log(data);
-    //     }).catch((err)=>{
-    //         console.log(err);
-    //     })
-    // }
+
     if(message.toLowerCase().includes("be a bad boi")) {
         client.say(channel, `Buy followers, primes and viewers on by watching this lovely streamer (remove the space)`)
         setTimeout(()=>{
@@ -66,9 +57,7 @@ client.on('message', (channel, user, message, self) => {
 
     }
 
-    if(message.toLowerCase().includes("adopted")) {
-        client.say(channel, `Mommy Ady will adopt me!! BibleThump`)
-    }
+
     if(message.toLowerCase().includes("say hello")) {
         client.say(channel, `Hello friends <3 <3`)
     }
@@ -107,25 +96,14 @@ client.on('message', (channel, user, message, self) => {
 
     // LOVE COMMAND
     if(command.toLowerCase() === "!love") {
+        let loveValue = 0
         if(_1 === undefined) {
             client.say(channel, `Please specify a username.`)
             return
         }
-        let loveValue = 0
-        if(user.username.toLowerCase().includes('ninja')) {
-          loveValue = Math.floor(Math.random()*16)
-        }
-         loveValue = Math.floor(Math.random()*101);
-        if(
-            (
-                _1.toLowerCase().includes('rissa')||
-                _1.toLowerCase().includes('cass')||
-                _1.toLowerCase().includes('adri')||
-                _1.toLowerCase().includes('archa')
-            )
-            && user.username.toLowerCase().includes("adam")) {
-            loveValue = 100;
-        }
+        
+        loveValue = Math.floor(Math.random()*101);
+        
         client.say(channel, `there is a ${loveValue}% chance of love between ${user.username} and ${_1}`)
     }
 
@@ -203,7 +181,6 @@ client.on('message', (channel, user, message, self) => {
 
     // ADRIANNAXOO CHANNEL
     if(channel === "#adriannaxoo") {
-        //Adrianna.AdriannaCommands(client, channel, user, message)
         if(command.toLowerCase() === "!kiss") {
             client.say(channel, `<3 @${user.username} has kissed ${_1} 💋 <3`)
         }
@@ -213,7 +190,5 @@ client.on('message', (channel, user, message, self) => {
     if(channel === "#adam79_kh"){
        Adam.AdamCommands(client, channel, user, message)
     }
-
- 
 
 })
