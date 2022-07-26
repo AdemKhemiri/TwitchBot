@@ -22,15 +22,13 @@ const options = {
         password: process.env.OATH_PASSWORD
     },
     channels: [
-        'adam79_kh',
-        channel,
+        "adam79_kh",
         "lilbusterx",
         "adriannaxoo",
         "RottenRunt"
     ]
     // channels: process.env.CHANNEL_NAMES.split(",")
 };
-let deathcount = 54
 
 const client = new tmi.Client(options)
 client.connect().catch(console.error);
@@ -63,32 +61,26 @@ client.on('message', (channel, user, message, self) => {
             client.say(channel, `Are you proud of me??`)
         }, 5000);
     }
-    if(user['first-msg']&&channel !== "#spookycass") {
+    if(user['first-msg']) {
         client.say(channel, `Welcome in @${user.username}!!`)
 
     }
 
-    if(message.toLowerCase().includes("adopted")) {
-        client.say(channel, `Mommy Ady will adopt me!! BibleThump`)
-    }
+   
     if(message.toLowerCase().includes("say hello")) {
         client.say(channel, `Hello friends <3 <3`)
     }
     if(message.toLowerCase().includes("say goodbye")) {
         client.say(channel, `Thank you for welcoming me, love you all <3`)
     }
-    // if(message.toLowerCase() === "meeya") {
-    //     client.say(channel, `i thought that strima is ded LUL`);
-    // }
+  
     if(message.toLowerCase().includes("fuck off")) {
         client.say(channel, `no, fuck you ${user.username}`);
     }
     if(command.toLowerCase() === "!hello") {
         client.say(channel, `No hello for you @${user.username}, fuck off!!`);
     }
-    // if(message.toLowerCase() === "cass") {
-    //     client.say(channel, `Cass is the love of Adam's life!!`);
-    // }
+  
     if(message.toLowerCase() === "!riot") {
         let RiotText = ""
         for (let index = 0; index < 10; index++) {
@@ -205,7 +197,7 @@ client.on('message', (channel, user, message, self) => {
 
     }
 
-    if (command.toLowerCase().includes('!jokes')) {
+    if (command.toLowerCase() === '!joke') {
         axios.get('https://v2.jokeapi.dev/joke/Any?type=single')
             .then((res)=>{
                 client.say(channel, `here's a ${res.data.category}joke: ${res.data.joke}`);
@@ -218,44 +210,14 @@ client.on('message', (channel, user, message, self) => {
 
 
 
-
-
-
-
-
-    // CARISSA CHANNEL
-    if(channel === "#carissaquack") {
-        Carissa.CarissaCommands(client, channel, user, message)
-    }
-    // CASSANDRAA CHANNEL
-    if(channel === "#spookycass") {
-        Cass.CassCommands(client, channel, user, message)
-    }
     // ADRIANNAXOO CHANNEL
-    if(channel === "#adriannaxoo"||channel==="archangeltricks") {
+    if(channel === "#adriannaxoo") {
         //Adrianna.AdriannaCommands(client, channel, user, message)
         if(command.toLowerCase() === "!kiss") {
             client.say(channel, `<3 @${user.username} has kissed ${_1} 💋 <3`)
         }
     }
-    if(channel === "#kindaalmostalice") {
-        if(command.toLowerCase() === "!love") {
-            if(_1 === undefined) {
-                client.say(channel, `Please specify a username.`)
-                return
-            }
-            let loveValue = Math.floor(Math.random()*101);
-            // if(
-            //     (
-            //         _1.toLowerCase().includes('alice')
-            //     )
-            //     && user.username.toLowerCase().includes("adam")) {
-            //     client.say(channel, `${user.username}, what love are you talking about ? it's none existant Jebaited`)
-            //     return
-            // }
-            client.say(channel, `there is a ${loveValue}% chance of love between ${user.username} and ${_1}`)
-        }
-    }
+ 
     // ADAM CHANNEL
     if(channel === "#adam79_kh"){
        Adam.AdamCommands(client, channel, user, message)
