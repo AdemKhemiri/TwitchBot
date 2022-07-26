@@ -66,21 +66,21 @@ client.on('message', (channel, user, message, self) => {
 
     }
 
-   
+    if(message.toLowerCase().includes("adopted")) {
+        client.say(channel, `Mommy Ady will adopt me!! BibleThump`)
+    }
     if(message.toLowerCase().includes("say hello")) {
         client.say(channel, `Hello friends <3 <3`)
     }
     if(message.toLowerCase().includes("say goodbye")) {
         client.say(channel, `Thank you for welcoming me, love you all <3`)
     }
-  
     if(message.toLowerCase().includes("fuck off")) {
         client.say(channel, `no, fuck you ${user.username}`);
     }
     if(command.toLowerCase() === "!hello") {
         client.say(channel, `No hello for you @${user.username}, fuck off!!`);
     }
-  
     if(message.toLowerCase() === "!riot") {
         let RiotText = ""
         for (let index = 0; index < 10; index++) {
@@ -172,13 +172,6 @@ client.on('message', (channel, user, message, self) => {
              size = "======="
          }
          
-         if(_1.toLowerCase().includes("ninja")) {
-             size = "=="
-         }
-        
-        // if(_1.toLowerCase().includes("bobber")) {
-        //     size = ""
-        // }
         client.say(channel, `peepee size machine: ${_1}'s penis 8${size}D`);
 
     }
@@ -197,17 +190,15 @@ client.on('message', (channel, user, message, self) => {
 
     }
 
-    if (command.toLowerCase() === '!joke') {
+    if (command.toLowerCase().includes('!jokes')) {
         axios.get('https://v2.jokeapi.dev/joke/Any?type=single')
             .then((res)=>{
-                client.say(channel, `here's a ${res.data.category}joke: ${res.data.joke}`);
+                client.say(channel, `here's a ${res.data.category} joke: ${res.data.joke}`);
             }).catch((err)=>{
                 client.say(channel, 'Error somewhere in the system!!')
                 console.log(err);
             })
     }
-
-
 
 
     // ADRIANNAXOO CHANNEL
@@ -223,10 +214,6 @@ client.on('message', (channel, user, message, self) => {
        Adam.AdamCommands(client, channel, user, message)
     }
 
-    // if(command === "!RL") {
-    //     RLSelected = true
-    // }
-    // RL.RocketLeagueControls(client, channel, message)
-
+ 
 
 })
