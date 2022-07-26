@@ -1,4 +1,5 @@
-const tmi = require('tmi.js')
+const tmi = require('tmi.js'),
+    { channel, username, password } = require('./settings.json');
 const db = require('./database')
 require('dotenv').config();
 const Carissa = require('./src/streamers/carissaquack')
@@ -21,20 +22,12 @@ const options = {
         password: process.env.OATH_PASSWORD
     },
     channels: [
-        'adam79_kh',
-        // "cassandramarie1"
-        'spookycass',
-        // "carissaquack",
-        // "lilbusterx",
+        channel,
+        "lilbusterx",
         // "meeya_8",
-        //  "adriannaxoo",
-        // "TyrellTheCreator_06",
-        // "chipmunkkiesses",
-        // "Archangeltricks",
-        // "kindaalmostalice",
-        // "Lobojoe125",
-        // "apricotsnaps",
-        'rottenrunt'
+        "adriannaxoo",
+        
+        "RottenRunt"
     ]
     // channels: process.env.CHANNEL_NAMES.split(",")
 };
@@ -204,12 +197,23 @@ client.on('message', (channel, user, message, self) => {
     }
 
 
+
     if(command.toLowerCase().includes('!pickupline') || command.toLowerCase() === '!flirt') {
         if(_1===undefined) {
             _1=channel
         }
         client.say(channel, `${_1}, ${PickupLines.getPickupLines()}`)
 
+    }
+
+    if (command.toLowerCase().includes('!jokes')) {
+        axios.get('https://v2.jokeapi.dev/joke/Any?type=single')
+            .then((res)=>{
+                client.say(channel, `here's a ${res.data.category}joke: ${res.data.joke}`);
+            }).catch((err)=>{
+                client.say(channel, 'Error somewhere in the system!!')
+                console.log(err);
+            })
     }
 
 
