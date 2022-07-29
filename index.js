@@ -22,7 +22,8 @@ const options = {
         "adam79_kh",
         "lilbusterx",
         "adriannaxoo",
-        "RottenRunt"
+        "RottenRunt",
+        "cr0mbi3__"
     ]
     // channels: process.env.CHANNEL_NAMES.split(",")
 };
